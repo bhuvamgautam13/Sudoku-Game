@@ -4,6 +4,10 @@ from PIL import Image, ImageTk
 import random
 from copy import deepcopy
 import numpy as np
+import os
+
+# Set the directory where your script is
+base_dir = os.path.dirname(__file__)
 
 # create a window (instructions)
 window1 = Tk()
@@ -39,7 +43,8 @@ instruction1.pack()
 userchoice = IntVar()
 userchoice.set(30)
 
-thinkingface = ImageTk.PhotoImage(Image.open('Thinking_Face_Emoji.png').resize((32, 32), Image.NEAREST))
+thinkingface_path = os.path.join(base_dir, 'Thinking_Face_Emoji.png')
+thinkingface = ImageTk.PhotoImage(Image.open(thinkingface_path).resize((32, 32), Image.NEAREST))
 
 # create radio buttons for the user to select the difficulty
 # Easy: 30
@@ -347,7 +352,8 @@ totalsolvedlabel = Label(bottomframe, text=f'Total solved: {totalsolved}', font=
 totalsolvedlabel.pack()
 
 # an image
-sudoku = ImageTk.PhotoImage(Image.open('sudoku.jpg').resize((333, 250), Image.NEAREST))
+sudoku_path = os.path.join(base_dir, 'sudoku.jpg')
+sudoku = ImageTk.PhotoImage(Image.open(sudoku_path).resize((333, 250), Image.NEAREST))
 sudokulabel = Label(window1, image=sudoku)
 sudokulabel.pack(side=BOTTOM)
 
