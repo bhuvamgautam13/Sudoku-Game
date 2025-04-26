@@ -197,7 +197,7 @@ def Check_Answer_9x9():
             Wrong()
             return
     
-    # Check if each column has no repeated numbe
+    # Check if each column has no repeated number
     for x in range(9):
         temp = set(sudoku_grid_9x9[x])
         if len(temp) != 9:
